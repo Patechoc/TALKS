@@ -1,0 +1,441 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 1 
+\begin{frame}{Outline}
+\footnotesize
+
+\begin{itemize}
+\item The Resolution-of-the-Identity (RI) approximation
+\item Methods exploiting locality to reach linear-scaling RI
+\item The PARI approximation
+\item Results and Analysis of convergence issues
+\item Conclusion
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 2
+\frametitle{The RI approximation}
+\framesubtitle{}
+
+\begin{frame}{The RI approximation}
+\footnotesize
+
+ The Resolution-of-the-Identity (RI), or the {\blue density-fitting} approximation:
+\begin{itemize}
+  \item Speed up calculations ({\blue typically by factor 3-30}) at little loss of chemical accuracy
+  \item Highly successful for {\blue approximating the Coulomb contribution} (in particular in DFT)
+  \item Also used for small- to medium-sized systems for {\blue approximation of the exact exchange} and 
+        in correlated treatment - {\red Scaling wall}
+  \item {\red Requires an auxiliary basis set}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 3
+\frametitle{The RI approximation}
+\framesubtitle{}
+
+\begin{frame}{The RI approximation}
+\footnotesize
+\begin{itemize}
+\item In the most commonly used RI treatments, the
+     four-center two-electron integrals (in the Mulliken notation)
+\beq
+  (\mu\nu|\gamma\delta) = \int_{{\mathbb R}^3} \int_{{\mathbb R}^3} \psi_\mu(\mathbf{r}_1)\psi_\nu(\mathbf{r}_1) \frac{1}{r_{12}} \psi_\gamma(\mathbf{r}_2)\psi_\delta(\mathbf{r}_2)
+                    d\mathbf{r}_1d\mathbf{r}_2.
+\eeq
+ are 
+     approximated by ${\blue \widetilde{(\mu\nu|\gamma\delta)}}$, according to
+%
+\beq
+  (\mu\nu|\gamma\delta) \approx \widetilde{(\mu\nu|\gamma\delta)} 
+   = \sum_{IJ} (\mu\nu|I)(I|J)^{-1}(J|\gamma\delta)
+\eeq
+%
+with ${\blue \left\{ \mu \right\}}$ the (regular) AO basis set and with
+an atom-centered auxiliary basis set ${\blue \left\{ I \right\}}$ 
+
+  \item The Coulomb contribution ({\blue up to 10 000 AO basis functions})
+\beq
+\begin{split}
+  &J_{\mu\nu} = (\mu\nu|\rho) = \sum_{\gamma\delta} (\mu\nu|\gamma\delta) D_{\gamma\delta}\\
+  \approx &\tilde J_{\mu\nu} = (\mu\nu|\tilde\rho) = \sum_{I} (\mu\nu|I)c_I, 
+   \quad \red \sum_J (I|J)c_J = (J|\rho)
+\end{split}
+\eeq
+
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 4
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{RI for the exact exchange (RI-K)}
+\footnotesize
+\begin{itemize}
+\item The (regular) exchange contribution
+\begin{eec}
+  K_{\mu\nu} = \sum_{\gamma\delta} (\mu\gamma|\nu\delta) D_{\gamma\delta} = \sum_i^\text{occ} (\mu i | \nu i)
+\end{eec}
+approximated according to - {\blue Weigend (2002), Polly~\emph{et.al} (2004)}
+\begin{eec}
+  \tilde K_{\mu\nu} = \sum_{\gamma\delta} \sum_{IJ} (\mu\gamma|I)(I|J)^{-1}(J|\nu\delta) D_{\gamma\delta}
+                    = \sum_i^\text{occ} \sum_{IJ} (\mu i |I)(I|J)^{-1}(J| \nu i)
+\end{eec}
+\item {\red Scaling wall} limits this approach to about 1000 AO basis-functions
+
+\begin{itemize}
+  \footnotesize 
+  \item metric matrix $\blue (I|J)$ non-sparse $\red \to {\cal O}(N^3)$ scaling
+  \item non-locality of fitting coefficients $\blue c_I^{\mu\nu}$ (\red for each pair $\mu\nu$)
+\begin{eec}
+  \blue c_I^{\mu\nu} = \sum_J (I|J)^{-1} (J|\mu\nu)
+\end{eec}
+  \item transformation steps, e.g. 
+\begin{eec}
+  \blue (I|\mu i) = \sum_{\nu} (I|\mu\nu) L_{\nu i}, \quad {\red {\cal O}(N^2 N_\text{occ})}
+\end{eec}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 5.1
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{Methods for linear-scaling RI}
+\footnotesize
+
+Two main approaches for linear-scaling RI:
+\begin{itemize}
+  \item {\red the Partitioning approach}
+    \\Partition the density and fit each density in a local region \\{\blue Gallant and St-Amant (1996),
+        Sodt~\emph{et.al} (2006), Sodt and Head-Gordon (2008)}
+%\begin{eec}
+%  \rho(\mathbf{r}) = \sum_s \rho^s(\mathbf{r}), \quad \red \rho^s(\mathbf{r}) \approx \tilde\rho^s(\mathbf{r})
+%\end{eec}
+  \item {\red the Local Metric approach}
+    \\Obtain the fitting coefficients using (\textit{w}) a local metric
+    \\(e.g. the overlap metric)
+    \\{\blue Baerends~\emph{et.al} (1973), Vahtras~\emph{et.al} (1993), Jung~\emph{et.al} (2005), Reine~\emph{et.al} (2008)}
+\begin{eec}
+  c_I^{\mu\nu} = \sum_J \langle I|w|J \rangle^{-1} \langle J|w|\mu\nu\rangle
+\end{eec}
+instead of the Coulomb metric
+\begin{eec}
+  \blue c_I^{\mu\nu} = \sum_J (I|J)^{-1} (J|\mu\nu)
+\end{eec}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 5.2
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{Methods for linear-scaling RI}
+\footnotesize
+%
+{\blue Atomic RI (ARI)}: an elegant and balanced partitioning approach:
+\begin{itemize}
+\item In the ARI approach of Sodt~\emph{et.al} each charge distribution $\blue |\mu\nu)$ is 
+     first associated with a center $\blue C$, and is fitted using auxiliary functions 
+     $\blue |I)$ centered on the atoms in some buffer zone $\blue [C]$ around $\blue C$ 
+
+\begin{eec}
+  |\mu\nu) = \sum_I c_I^{\mu\nu} |I), \quad \red |I) \in [C]
+\end{eec}
+\begin{itemize}
+  \footnotesize 
+  \item fixed buffer-zone size - {\red system dependent}
+  \item the set $\blue |I)$ includes the {\red auxiliary functions centered on several atoms}
+\end{itemize}
+\item Jung~\emph{et.al} explored the decay behavior of the two-center fitting coefficients
+     $\blue c_I^{\mu\nu}$. 
+\begin{itemize}
+  \footnotesize 
+    \item Coulomb metric fit - the asymptotic decay of $\blue c_I^{\mu\nu}$ was as slow 
+          as $\red \frac{1}{r}$
+    \item local ({\blue overlap/attenuated Coulomb}) metric fit - {\red exponential decay} with distance
+    \item But the fitting errors $\approx 10$ times smaller in the Coulomb than in the overlap metric
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 6.1
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{The PARI approach}
+\footnotesize
+
+We propose the pair-atomic resolution-of-the-identity (PARI):
+\begin{itemize}
+\item fit each charge distribution $\blue |\mu\nu)$ with auxiliary functions
+     $\blue |I)$ centered on the two parent atoms $\blue A$ and $\blue B$ of 
+     the basis functions $\blue |\mu)$ and $\blue |\nu)$
+\begin{eec}
+  |\widetilde{\mu\nu}) = \sum_{I\in{A\cup B}} c_I^{\mu\nu}|I), 
+   \quad c_I^{\mu\nu} = \sum_{\red J\in{A\cup B}} (I|J)^{-1}(J|\mu\nu)
+\end{eec}
+instead of the (regular) RI approx.
+\begin{eec}
+  |\widetilde{\mu\nu}) = \sum_{I\in{\cal M}} c_I^{\mu\nu}|I), 
+   \quad c_I^{\mu\nu} = \sum_{\red J\in{\cal M}} (I|J)^{-1}(J|\mu\nu)
+\end{eec}
+\item replace all $\blue (\mu\nu|\gamma\delta)$ by {\red robust} and {\red variational} 
+      $\blue \widetilde{(\mu\nu|\gamma\delta)}$ given by
+\begin{equation*}
+\begin{split}
+\blue
+  \widetilde{(\mu\nu|\gamma\delta)} &\blue= (\mu\nu|\widetilde{\gamma\delta}) 
+    + (\widetilde{\mu\nu}|\gamma\delta) - (\widetilde{\mu\nu}|\widetilde{\gamma\delta})\\
+& = \blue (\mu\nu|\gamma\delta) - \red (\mu\nu-\widetilde{\mu\nu}|\gamma\delta-\widetilde{\gamma\delta})
+\end{split}
+\end{equation*}
+\item Pros/Cons:
+\begin{itemize}
+\item {\blue highly local}
+\item {\blue removes scaling bottleneck }
+\item {\red decreases accuracy} $\to$ larger auxiliary basis sets
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 6.2
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{PARI-J}
+\footnotesize
+
+PARI for the Coulomb contribution (PARI-J)
+\begin{equation*}
+\begin{split}
+  \widetilde{J}_{\mu\nu} &=  \sum_{\gamma\delta} \widetilde{(\mu\nu|\gamma\delta)} D_{\gamma\delta} 
+  = \sum_{\gamma\delta} \left[  (\widetilde{\mu\nu}|\gamma\delta) +  (\mu\nu|\widetilde{\gamma\delta}) -  (\widetilde{\mu\nu}|\widetilde{\gamma\delta}) \right]  D_{\gamma\delta}\\
+   &=  \sum_{\gamma\delta} \left[ \sum_{I\in{A\cup B}}c_I^{\mu\nu} (I|\gamma\delta) + \sum_{J\in{C\cup D}} (\mu\nu|J) c_J^{\gamma\delta} - \sum_{I\in{A\cup B},J\in{C\cup D}}c_I^{\mu\nu} (I|J) c_J^{\gamma\delta} \right]  D_{\gamma\delta}\\
+   &=  \sum_{I\in{A\cup B}}c_I^{\mu\nu} (I|\rho) + \sum_{J\in{C\cup D}} (\mu\nu|J) c_J - \sum_{I\in{A\cup B}}c_I^{\mu\nu} (I| \tilde{\rho}),  with \quad \red c_J = \sum_{\gamma\delta} c_J^{\gamma\delta} D_{\gamma\delta} \\
+ &= \sum_{J\in{C\cup D}} (\mu\nu|J) c_J +  \sum_{I\in{A\cup B}}c_I^{\mu\nu} (I|\rho-\tilde{\rho}), with \quad 
+\blue |\tilde\rho) = \sum_J c_J|J),  \red \sum_J (I|J)c_J = (J|\rho) \\
+   & = \sum_I (\mu\nu|I)c_I + \sum_{I\in{A\cup B}} C_I^{\mu\nu}(I|\rho-\tilde\rho)
+\end{split}
+\end{equation*}
+\begin{itemize}
+  \item straightforwardly linear scaling using screening and FMM
+\end{itemize}
+\end{frame}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 6.3
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{PARI-K}
+\footnotesize
+
+PARI for the Exact-Exchange contribution (PARI-K)
+\begin{itemize}
+\item split fitting coefficients into the two parent atoms
+\begin{eec}
+  |\widetilde{\mu\nu}) = 
+  |\widetilde{\underbar{$\mu$}\nu}) + |\widetilde{\mu\underbar{$\nu$}}), 
+  \quad \red |\widetilde{\underbar{$\mu$}\nu}) = \sum_{I\in A} c_I^{\mu\nu} |I),
+  \quad \blue |\mu\widetilde{\underbar{$\nu$}}) = \sum_{J\in B} c_J^{\mu\nu} |J)
+\end{eec}
+\item leads to a splitting of $\blue \widetilde{(\mu\nu|\gamma\delta)}$ into eight parts
+      - four involving three-center and four two-center integrals
+\item collect terms in order to calculate each integral only once and select 
+      contraction pathway in order to reduce cost
+\item exploit symmetry of integrals and density matrix 
+\end{itemize}
+An example three-center term:
+\begin{equation*}
+ \blue K_{\mu\gamma} \stackrel{+}{=} \sum\limits_{I\delta} d_{I,\delta}^\mu (I|\gamma\delta), 
+  \quad \red I,\mu\in A,\blue \gamma\in C, \red \delta\in {\cal M}, \quad
+  \blue d_{I,\gamma}^\mu = \sum\limits_\nu c_I^{\mu\nu}D_{\nu\gamma}
+%\begin{split}
+% \blue K_{\mu\gamma} &\blue\stackrel{+}{=} \sum\limits_{I\delta} d_{I,\delta}^\mu (I|\gamma\delta), \quad \red I,\mu\in A,\blue \gamma\in C, \red \delta\in {\cal M}\\
+% \blue d_{I,\gamma}^\mu &\blue = \sum\limits_\nu c_I^{\mu\nu}D_{\nu\gamma}
+%\end{split}
+\end{equation*}
+\begin{itemize}
+  \item ignoring screening each of these terms scale $\blue {\cal O}(N^3 n^3 a)$\\
+    number of atoms $\blue N$, of regular/auxiliary basis functions per atom 
+        $\blue n$,$\blue a$
+  \item to be compared with the $\red {\cal O}(N^4 n^2 a^2)$ scaling of conventional RI
+%- {\blue can be reduced to $\red {\cal O}(N^3 N_\text{occ} n a^2)$ using MOs, with $\red N_\text{occ}$ the number of occupied MOs}
+\end{itemize}
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 7
+\frametitle{}
+\framesubtitle{}
+
+\begin{frame}{ Outline of PARI-K algorithm}
+\footnotesize
+\begin{figure}
+\begin{tabbing}
+\hspace{3pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\=\hspace{10pt}\kill
+\> {\blue Three-center contributions} \\
+\> Loop $A$ \\
+\> \> Calculate the fitting coefficients $\blue c_I^{\mu\nu}, \quad \red I,\mu\in A, \blue \nu\in {\cal M}$ \\
+\> \> and density coefficients $\blue d_{I,\gamma}^\mu $ \\
+%\> \> Construct density coefficients $\blue d_{I,\gamma}^\mu $\\
+\> \> Loop $C$ \\
+\> \> \> Loop $D\ge C$ \\
+\> \> \> \> Calculate $\blue (I|\gamma\delta), \quad \red I\in A,\blue\gamma\in C, \red\delta\in D$ \\
+\> \> \> \> Make contractions \\
+\> \> \> \> \> $\blue \tilde K_{\mu\gamma} \stackrel{+}{=} \sum\limits_{I\delta} d_{I,\delta}^\mu (I|\gamma\delta), \red \quad {\cal O}(N^3 n^3 a)$ \\
+\> \> \> \> \> $\blue \tilde K_{\mu\delta} \stackrel{+}{=} \sum\limits_{I\gamma} d_{I,\gamma}^\mu (I|\gamma\delta), \red \quad {\cal O}(N^3 n^3 a)$ \\
+\> \> \> \> \> $\blue X_{I,\gamma}^\mu = \sum\limits_\delta (I|\gamma\delta)D_{\mu\delta}, \red \quad {\cal O}(N^3 n^3 a)$ \\
+\> \> \> \> \> $\blue X_{I,\delta}^\mu = \sum\limits_\gamma (I|\gamma\delta)D_{\mu\gamma}, \red \quad {\cal O}(N^3 n^3 a)$ \\
+%\> \> \> End loop $D$ \\
+\> \> Make contractions \\
+\> \> \> $\blue \tilde K_{\nu \gamma} \stackrel{+}{=} \sum_{I,\mu} c_{I}^{\mu\nu} X_{I,\gamma}^\mu, \red \quad {\cal O}(N^3 n^3 a)$ \\
+\> \> \> $\blue \tilde K_{\nu \delta} \stackrel{+}{=} \sum_{I,\mu} c_{I}^{\mu\nu} X_{I,\delta}^\mu, \red \quad {\cal O}(N^3 n^3 a)$ \\
+%\> \> End loop $C$ \\
+%\> End loop $A$ \\
+\> Symmetrized or anti-symmetrized $\blue \mathbf{\tilde K}$ \\
+\end{tabbing}
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide 8
+\begin{frame}{Results and Analysis of convergence issues}
+\footnotesize
+
+
+
+\begin{center}
+G2/G3   Benchmark set (358 molecules), B3LYP, 6-31G/df-def2
+\begin{tabular}{lcccccc}
+\hline 
+           & $\delta (dfJ)$ & $\delta (pariJ)$ & $\delta (dfK)$ & $\delta (pariK)$ & $\delta (dfJK)$ & $\delta (pariJK)$ \\ 
+           $\mu$  & -2.14e-05  & -7.40e-05  &  8.04e-06 & -3.21e-05 & -1.33e-05  & -5.34e-05  \\
+          $\sigma$   &  9.11e-06  &  4.82e-05  & -1.11e-06 &  3.48e-05 &  8.00e-06  &  4.39e-05  \\
+          $\sigma^{max}$  &  5.14e-05  &  2.05e-04  &  1.45e-05 &  1.35e-04 &  3.68e-05  &  1.86e-04 \\
+
+\hline
+\end{tabular}
+\end{center}
+
+Some convergence issues:
+\begin{itemize}
+\item some molecules have a diverging negative energy during SCF
+\item we observed the non-positive definitness of the PARI approx.
+\item this may come from the non-uniformity of the PARI operator, 
+\item leading to discontinuities of the Potential Energy Surface
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% slide ...
+\begin{frame}{Results and Analysis of convergence issues}
+\footnotesize
+
+\begin{center}
+Timings for 6-31G\_df-def2 (in sec. per iteration)
+\begin{tabular}{lcccccc}
+\hline
+& $regJ$ & $pariJ$ & $dfJ$ & $LinK$ & $pariK$ & $dfK$ \\ 
+PA\_oligomer\_2 & 1.89 & 1.18 & 0.68 & 2.88 & 9.5 & 11.11 \\ 
+PA\_oligomer\_3 & 0.24 & 0.28 & 0.12 & 0.37 & 1.18 & 0.63 \\ 
+PA\_oligomer\_4 & 0.63 & 0.51 & 0.27 & 0.97 & 3.21 & 2.02 \\ 
+PA\_oligomer\_5 & 1.18 & 0.81 & 0.43 & 1.98 & 6.15 & 5.07 \\ 
+PP & 2.71 & 1.48 & 0.84 & 4.83 & 11.34 & 12.33 \\ 
+acene\_1 & 1.93 & 1.08 & 0.61 & 3.35 & 6.9 & 5.76 \\ 
+acene\_2 & 4.33 & 2.18 & 1.29 & 7.89 & 18.85 & 19.23 \\ 
+acene\_3 & 8.69 & 3.46 & 1.92 & 15.91 & 34.93 & - \\ 
+acene\_4 & 11.83 & 4.27 & 2.89 & 22.11 & 56.25 & - \\ 
+acene\_5 & 19.82 & 5.69 & 3.96 & 38.14 & 76.0 & - \\ 
+beta-dipeptide & 2.19 & 1.42 & 0.75 & 4.51 & 10.8 & 11.57 \\ 
+co & 0.01 & 0.08 & 0.01 & 0.01 & 0.09 & 0.03 \\ 
+dipeptide & 1.58 & 1.17 & 0.59 & 3.38 & 8.66 & 7.77 \\ 
+dmabn & 2.66 & 1.54 & 0.88 & 5.63 & 12.03 & 13.26 \\ 
+h2co & 0.02 & 0.12 & 0.02 & 0.03 & 0.22 & 0.07 \\ 
+hcl & 0.01 & 0.13 & 0.01 & 0.01 & 0.14 & 0.03 \\ 
+n2 & 0.01 & 0.06 & 0.01 & 0.01 & 0.08 & 0.03 \\ 
+tripeptide & 3.42 & 1.98 & 1.14 & 7.17 & 20.64 & 18.24 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+%%%%% slide ...
+\begin{frame}{Results and Analysis of convergence issues}
+\footnotesize
+
+\begin{center}
+Timings for cc-pVTZ\_cc-pVTZdenfit (in sec. per iteration)
+\begin{tabular}{lcccccc}
+\hline
+& $regJ$ & $pariJ$ & $dfJ$ & $LinK$ & $pariK$ & $dfK$ \\ 
+PA\_oligomer\_2 & 138.00 & 10.80 & 5.18 & 395.00 & 148.00 & 202.87 \\ 
+PA\_oligomer\_3 & 13.53 & 2.09 & 0.80 & 36.60 & 15.54 & 11.48 \\ 
+PA\_oligomer\_4 & 41.06 & 4.33 & 1.86 & 116.00 & 38.99 & 40.04 \\ 
+PA\_oligomer\_5 & 81.00 & 7.44 & 3.45 & 291.00 & 89.00 & 143.84 \\ 
+PP & 210.00 & 13.33 & 6.62 & 675.00 & 157.00 & 295.73 \\ 
+acene\_1 & 173.00 & 10.87 & 5.53 & 477.00 & 131.00 & 204.18 \\ 
+acene\_2 & 423.00 & 20.55 & 11.22 & 1199.00 & 287.00 & - \\ 
+acene\_3 & 799.00 & 33.21 & 18.35 & 2363.00 & 554.00 & - \\ 
+acene\_4 & 1295.00 & 48.32 & 28.88 & 3746.00 & 1064.00 & - \\ 
+acene\_5 & 1797.00 & 64.00 & 39.59 & 5555.00 & 1659.00 & - \\ 
+beta-dipeptide & 162.00 & 12.29 & 6.19 & 573.00 & 168.00 & 210.43 \\ 
+co & 0.22 & 0.28 & 0.05 & 0.53 & 0.55 & 0.29 \\ 
+dipeptide & 106.00 & 9.91 & 4.66 & 378.00 & 123.00 & 132.06 \\ 
+dmabn & 221.00 & 15.26 & 7.04 & 854.00 & 183.00 & 231.08 \\ 
+h2co & 0.78 & 0.59 & 0.12 & 2.26 & 1.87 & 0.93 \\ 
+hcl & 0.18 & 0.43 & 0.04 & 0.40 & 0.63 & 0.17 \\ 
+n2 & 0.22 & 0.24 & 0.05 & 0.53 & 0.53 & 0.28 \\ 
+tripeptide & 279.00 & 18.47 & 9.12 & 952.00 & 291.00 & - \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Slide 9
+
+\begin{frame}{Conclusion and future perspective}
+\footnotesize
+\begin{itemize}
+\item We have presented the PARI scheme for efficient calculation of the Coulomb 
+     and exchange contributions to DFT
+\item The PARI method can in general be used for any method involving four-center two-electron
+     integrals
+\item Linear scaling in nature, relatively small errors
+\item Allows differentiated treatment by adding Lagrangian multipliers
+\item The method has some inherent problems, but highly promising
+\end{itemize}
+\begin{center}
+{\red Thank you for your attention! }
+\end{center}
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

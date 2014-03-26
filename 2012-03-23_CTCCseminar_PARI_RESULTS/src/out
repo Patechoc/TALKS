@@ -1,0 +1,281 @@
+pdflatex slides.tex
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009)
+entering extended mode
+(./slides.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
+rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
+lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
+ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamer.cls
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasercs.sty)
+Document Class: beamer 2007/03/11 cvs version 3.07 A class for typesetting pres
+entations (rcs-revision 1.70)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasedecode.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pdftex-def/pdftex.def)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/utilities/pgfut
+il-common.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/utilities/pgfut
+il-latex.def)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/utilities/pgfrc
+s.code.tex))
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+sys.code.tex
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/utilities/pgfke
+ys.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+.cfg)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+sys-pdftex.def
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+sys-common-pdf.def)))
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+syssoftpath.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/systemlayer/pgf
+sysprotocol.code.tex))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/color.cfg))
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+ore.code.tex
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmath.co
+de.tex
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathcal
+c.code.tex
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathuti
+l.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathpar
+ser.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathope
+rations.code.tex
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathtri
+g.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathrnd
+.code.tex))
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/math/pgfmathbas
+e.code.tex)))
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orepoints.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orepathconstruct.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orepathusage.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orescopes.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oregraphicstate.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oretransformations.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orequick.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oreobjects.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orepathprocessing.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orearrows.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oreshade.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oreimage.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orelayers.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+oretransparency.code.tex)
+(/usr/local/texlive/2009/texmf/tex/generic/pgf-2.00/generic/pgf/basiclayer/pgfc
+orepatterns.code.tex)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pgf/basiclayer/pgfbaseimage.sty
+
+Package pgf Warning: This package is obsolete and no longer needed on input lin
+e 13.
+
+) (/usr/local/texlive/2009/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/hycolor.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/xcolor-patch.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/infwarerr.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/hyperref.cfg)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty))
+Implicit mode OFF; no redefinition of LaTeX internals
+(/usr/local/texlive/2009/texmf-dist/tex/latex/ltxmisc/url.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/bitset.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/intcalc.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/bigintcalc.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifluatex.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/atbegshi.sty)
+Hyperref stopped early
+)
+*hyperref using default driver hpdftex*
+(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/hpdftex.def)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/size11.clo)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasecompatibility.st
+y) (/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasefont.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasetitle.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasesection.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseframe.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.
+sty) (/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasecolor.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasenotes.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasetoc.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.s
+ty (/usr/local/texlive/2009/texmf-dist/tex/latex/tools/enumerate.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/translator/translator.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/translator/translator-language-ma
+ppings.tex)) (/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amscls/amsthm.sty))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/themes/theme/beamerthemede
+fault.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
+edefault.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
+emedefault.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
+emedefault.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
+emedefault.sty)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/utf8
+
+.def
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/omsenc.dfu)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1enc.dfu)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/tools/multicol.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/ae/ae.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/t1enc.def)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/ae/t1aer.fd)))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/ae/aecompl.sty) (./psfig.sty
+psfig/tex 1.8
+) (/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/epsfig.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pstricks/pstcol.sty
+
+Package pstcol Warning: ************************************ 
+(pstcol)                The package `pstcol' is obsolet! 
+(pstcol)                You should use `pstricks' directly: 
+(pstcol)                    \usepackage{pstricks}
+(pstcol)                ************************************.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/pstricks/pstricks.sty
+(/usr/local/texlive/2009/texmf-dist/tex/generic/pstricks/pstricks.tex
+`PSTricks' v1.29  <2009/05/19> (tvz)
+(/usr/local/texlive/2009/texmf-dist/tex/generic/pstricks/pstricks.con))))
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/latexsym.sty)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/times.sty)
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 98.
+
+No file slides.aux.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+*geometry auto-detecting driver*
+*geometry detected driver: pdftex*
+(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/refcount.sty))
+(./slides.out) (./slides.out)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/translator/translator-theorem-dic
+tionary-English.dict) (./slides.nav) <uio.pdf, id=10, 463.7325pt x 475.7775pt>
+<use uio.pdf> <sff.pdf, id=11, 90.3375pt x 62.2325pt> <use sff.pdf>
+<uit.pdf, id=12, 70.2625pt x 70.2625pt> <use uit.pdf>
+<ctcc_forside.jpg, id=13, 493.3632pt x 370.0224pt> <use ctcc_forside.jpg>
+[1
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/upd
+map/pdftex.map} <./ctcc_forside.jpg> <./uio.pdf> <./sff.pdf> <./uit.pdf>]
+(./PARI.tex <ctcc_general.jpg, id=29, 493.3632pt x 370.0224pt>
+<use ctcc_general.jpg> [2 <./ctcc_general.jpg>]
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/ulasy.fd)
+Overfull \vbox (19.12575pt too high) detected at line 59
+<use ctcc_general.jpg> [3] <use ctcc_general.jpg> [4]
+Overfull \vbox (50.98564pt too high) detected at line 129
+<use ctcc_general.jpg> [5]
+Overfull \hbox (0.46704pt too wide) detected at line 168
+[][] \OT1/cmss/m/n/9 = [](\OML/cmm/m/it/9 ^^V^^W\OMS/cmsy/m/n/9 j\T1/phv/m/sl/9
+ I\OT1/cmss/m/n/9 )\T1/phv/m/sl/9 c[] \OT1/cmss/m/n/9 + [] \T1/phv/m/sl/9 c[]\O
+T1/cmss/m/n/9 (\T1/phv/m/sl/9 I\OMS/cmsy/m/n/9 j\OML/cmm/m/it/9 ^^Z \OMS/cmsy/m
+/n/9 ^^@ []\OT1/cmss/m/n/9 )\OML/cmm/m/it/9 ; [] \T1/phv/m/sl/9 c[] \OT1/cmss/m
+/n/9 = [] \T1/phv/m/sl/9 c[]D[]\OML/cmm/m/it/9 ; [] \OMS/cmsy/m/n/9 j[]\OT1/cms
+s/m/n/9 ) = [] \T1/phv/m/sl/9 c[]\OMS/cmsy/m/n/9 j\T1/phv/m/sl/9 I\OT1/cmss/m/n
+/9 )[][][]
+
+Overfull \vbox (9.59271pt too high) detected at line 168
+<use ctcc_general.jpg> [6]
+Overfull \vbox (2.6745pt too high) detected at line 210
+<use ctcc_general.jpg> [7] <use ctcc_general.jpg> [8] <use ctcc_general.jpg>
+[9] <use ctcc_general.jpg> [10]) (./slides.aux (./PARI.aux)) )
+(see the transcript file for additional information){/usr/local/texlive/2009/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2009/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
+ype1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2009/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2009/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2009/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmss9.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy9.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/hel
+vetic/uhvb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/helvetic/u
+hvr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.
+pfb>
+Output written on slides.pdf (10 pages, 690866 bytes).
+Transcript written on slides.log.
