@@ -1,0 +1,126 @@
+\pagenumbering{arabic}
+\documentclass[slides]{beamer}
+%\documentclass[slides,hyperref={pdfpagelabels=false}]{beamer}
+%\documentclass[handout,gray]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsbsy}
+\usepackage{multicol}
+\usepackage{booktabs} % Make some nice tables
+\usepackage{ae,aecompl}
+
+
+%%%%%%%%%%%%% Simen packages
+\usepackage{graphicx, psfig, epsfig}
+\usepackage[dvips]{pstcol} % To use the standard "color" package with Seminar
+%%%%%\usepackage{semcolor}
+ \usepackage{latexsym}
+ \usepackage{color}
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+%%%%%%%%%%%%% end Simen packages
+
+%%%%%%%%%%%% COULEURS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+{
+  \definecolor{beamerstructure}{RGB}{43,79,112}
+  \definecolor{sidebackground}{RGB}{230,242,250}
+  \definecolor{CTCC}{RGB}{133,188,228}
+  \color{beamerstructure}
+  \usetheme{default}
+  \usepackage{times}
+  \beamertemplateballitem
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{sidebar left}{\thispdfpagelabel{\insertframenumber}}
+%\setbeamertemplate{footline}{\quad\insertframenumber}
+%\usecolortheme{CTCC}
+}
+\usebackgroundtemplate{\includegraphics[width=1.02\paperwidth]{ctcc_general.jpg}}
+
+\title{\\\vspace{1cm}
+Pair-Atomic Resolution-of-the-Identity}
+%\subtitle{\textcolor{magenta}{My subtitle (if applicable)}}
+\author{Patrick Merlot, Simen Reine and Trygve Helgaker}
+%\institute[CTCC]{\\[-6mm]<my.name>@somewhere.no\\[6mm]University of Oslo\\[6mm]
+\institute[CTCC]{\\[-6mm]patrick.merlot@kjemi.uio.no\\[6mm]NKS meeting in Computational Chemistry\\[6mm]
+\includegraphics[height=1.5cm]{uio.pdf}\hspace{1cm} 
+\includegraphics[height=1.5cm]{sff.pdf}\hspace{1cm}
+\includegraphics[height=1.5cm]{uit.pdf}}
+\date{Trondheim, Norway\\23 nov.2010}
+
+\newcommand{\gb}[1]{green!#1!black}
+\newcommand{\rb}[1]{red!#1!black}
+\newcommand{\bb}[1]{blue!#1!black}
+\newcommand{\coleq}{red!60!black}
+\newcommand{\du}{\textrm{d}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% commands Simen
+\definecolor{light}{gray}{0.85}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\vek}{vec}
+\newcommand{\clr}{\color{red}}
+\newcommand{\clg}{\color{green}}
+\newcommand{\clb}{\color{blue}}
+\newcommand{\clbrown}{\color{brown}}
+\newcommand{\slc}{\color{black}}
+\newcommand{\eqc}{\color{blue}}
+\newcommand{\itc}{\color{blue}}
+\newcommand{\emc}[1]{\color{red}#1}
+\newcommand{\head}[1]{\begin{center} \fbox{\color{red}#1} \end{center}}
+\newcommand{\itm}{\item[\emc $\bullet$]}
+\newcommand{\back}{\vspace*{-10pt}}
+\newcommand{\mbold}[1]{\ensuremath{\mbox{\boldmath $#1$}}}
+\newcommand{\beq}{\begin{equation*}\color{blue}}
+\newcommand{\eeq}{\end{equation*}\color{black}}
+%
+\newcommand{\SlideColours}[2][black]{%
+% #1 = foreground color (optional, default=black), #2 = background color
+\slideframe[\psset{fillcolor=#2,fillstyle=solid}]{scplain}
+\color{#1}}
+%
+\def\bm#1{\mbox{\boldmath $ #1 $}}
+\newenvironment{eec}{\begin{displaymath}\begin{color}{blue}}{\end{color}\end{displaymath}}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+\begin{document}
+\setlength{\unitlength}{\textwidth}
+
+{
+\usebackgroundtemplate{\includegraphics[width=1.02\paperwidth]{ctcc_forside.jpg}}
+\maketitle
+}
+
+\include{PARI}
+
+% \begin{frame}{Outline1}
+% \begin{itemize}
+%  \item \ldots
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Outline2}
+% \begin{itemize}
+%  \item \ldots
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Outline3}
+% \begin{itemize}
+%  \item \ldots
+% \end{itemize}
+% \end{frame}
+
+\end{document}
