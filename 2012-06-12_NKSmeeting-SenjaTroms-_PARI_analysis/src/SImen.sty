@@ -1,0 +1,107 @@
+% commands and environments frequently
+% used by Jon
+\ProvidesPackage{SImen}
+\RequirePackage{float, ifthen, color}
+
+\definecolor{gray}{cmyk}{ 0.0 , 0.0 , 0.0 , 0.3 }
+
+\newcommand{\dd}{\partial}
+\newcommand{\mat}[1]{\mathsf{#1}}
+\newcommand{\ud}[1]{\mathrm{#1}}
+\newcommand{\matenv}[1]{${#1}$ }
+\newcommand{\bra}[1]{\langle #1 \vert}
+\newcommand{\ket}[1]{\vert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 \vert #2 \rangle}
+\newcommand{\norm}[1]{\vert #1 \vert}
+\newcommand{\bok}[3]{\langle #1 \vert #2 \vert #3 \rangle}
+\newcommand{\op}[1]{\langle \vert #1 \vert \rangle}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\expval}[1]{\langle \mat{#1} \rangle}
+\newcommand{\oper}[1]{\widehat #1}
+\newcommand{\beq}{\begin{equation*}}
+\newcommand{\eeq}{\end{equation*}}
+\newcommand{\vinput}[1]{\verbatiminput{#1}}
+\newcommand{\æ}{\ae }
+\newcommand{\ø}{\o }
+\newcommand{\å}{\aa }
+\newcommand{\qed}{\matenv \blacksquare}
+\newcommand{\tensor}[1]{ \mathbb{#1} }
+\newcommand{\Feta}{\hspace{0.6ex}\begin{turn}{180}
+        {\raisebox{-\height}{\parbox[c]{1mm}{F}}}\end{turn}}
+\newcommand{\feta}{\hspace{-1.6ex}\begin{turn}{180}
+        {\raisebox{-\height}{\parbox[b]{4mm}{f}}}\end{turn}}
+%\renewcommand{\tensor}[1]{ \textcolor{gray}{ \mathbb{#1} } }
+%\renewcommand{\vec}[1]{\textcolor{gray}{#1}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcmykcolor{GreenYellow}{0.15 0 0.69 0} %% GreenYellow  ~ PANTONE 388
+\newcmykcolor{Yellow}{0 0 1 0} %% Yellow  ~ PANTONE YELLOW
+\newcmykcolor{Goldenrod}{0 0.10 0.84 0} %% Goldenrod  ~ PANTONE 109
+\newcmykcolor{Dandelion}{0 0.29 0.84 0} %% Dandelion  ~ PANTONE 123
+\newcmykcolor{Apricot}{0 0.32 0.52 0} %% Apricot  ~ PANTONE 1565
+\newcmykcolor{Peach}{0 0.50 0.70 0} %% Peach  ~ PANTONE 164
+\newcmykcolor{Melon}{0 0.46 0.50 0} %% Melon  ~ PANTONE 177
+\newcmykcolor{YellowOrange}{0 0.42 1 0} %% YellowOrange  ~ PANTONE 130
+\newcmykcolor{Orange}{0 0.61 0.87 0} %% Orange  ~ PANTONE ORANGE-021
+\newcmykcolor{BurntOrange}{0 0.51 1 0} %% BurntOrange  ~ PANTONE 388
+\newcmykcolor{Bittersweet}{0 0.75 1 0.24} %% Bittersweet  ~ PANTONE 167
+\newcmykcolor{RedOrange}{0 0.77 0.87 0} %% RedOrange  ~ PANTONE 179
+\newcmykcolor{Mahogany}{0 0.85 0.87 0.35} %% Mahogany  ~ PANTONE 484
+\newcmykcolor{Maroon}{0 0.87 0.68 0.32} %% Maroon  ~ PANTONE 201
+\newcmykcolor{BrickRed}{0 0.89 0.94 0.28} %% BrickRed  ~ PANTONE 1805
+\newcmykcolor{Red}{0 1 1 0} %% Red  VERY-Approx PANTONE RED
+\newcmykcolor{OrangeRed}{0 1 0.50 0} %% OrangeRed  No PANTONE match
+\newcmykcolor{RubineRed}{0 1 0.13 0} %% RubineRed  ~ PANTONE RUBINE-RED
+\newcmykcolor{WildStrawberry}{0 0.96 0.39 0} %% WildStrawberry  ~ PANTONE 206
+\newcmykcolor{Salmon}{0 0.53 0.38 0} %% Salmon  ~ PANTONE 183
+\newcmykcolor{CarnationPink}{0 0.63 0 0} %% CarnationPink  ~ PANTONE 218
+\newcmykcolor{Magenta}{0 1 0 0} %% Magenta  ~ PANTONE PROCESS-MAGENTA
+\newcmykcolor{VioletRed}{0 0.81 0 0} %% VioletRed  ~ PANTONE 219
+\newcmykcolor{Rhodamine}{0 0.82 0 0} %% Rhodamine  ~ PANTONE RHODAMINE-RED
+\newcmykcolor{Mulberry}{0.34 0.90 0 0.02} %% Mulberry  ~ PANTONE 241
+\newcmykcolor{RedViolet}{0.07 0.90 0 0.34} %% RedViolet  ~ PANTONE 234
+\newcmykcolor{Fuchsia}{0.47 0.91 0 0.08} %% Fuchsia  ~ PANTONE 248
+\newcmykcolor{Lavender}{0 0.48 0 0} %% Lavender  ~ PANTONE 223
+\newcmykcolor{Thistle}{0.12 0.59 0 0} %% Thistle  ~ PANTONE 245
+\newcmykcolor{Orchid}{0.32 0.64 0 0} %% Orchid  ~ PANTONE 252
+\newcmykcolor{DarkOrchid}{0.40 0.80 0.20 0} %% DarkOrchid  No PANTONE match
+\newcmykcolor{Purple}{0.45 0.86 0 0} %% Purple  ~ PANTONE PURPLE
+\newcmykcolor{Plum}{0.50 1 0 0} %% Plum  VERY-Approx PANTONE 518
+\newcmykcolor{Violet}{0.79 0.88 0 0} %% Violet  ~ PANTONE VIOLET
+\newcmykcolor{RoyalPurple}{0.75 0.90 0 0} %% RoyalPurple  ~ PANTONE 267
+\newcmykcolor{BlueViolet}{0.86 0.91 0 0.04} %% BlueViolet  ~ PANTONE 2755
+\newcmykcolor{Periwinkle}{0.57 0.55 0 0} %% Periwinkle  ~ PANTONE 2715
+\newcmykcolor{CadetBlue}{0.62 0.57 0.23 0} %% CadetBlue  ~ PANTONE (534+535)/2
+\newcmykcolor{CornflowerBlue}{0.65 0.13 0 0} %% CornflowerBlue  ~ PANTONE 292
+\newcmykcolor{MidnightBlue}{0.98 0.13 0 0.43} %% MidnightBlue  ~ PANTONE 302
+\newcmykcolor{NavyBlue}{0.94 0.54 0 0} %% NavyBlue  ~ PANTONE 293
+\newcmykcolor{RoyalBlue}{1 0.50 0 0} %% RoyalBlue  No PANTONE match
+\newcmykcolor{Blue}{1 1 0 0} %% Blue  ~ PANTONE BLUE-072
+\newcmykcolor{Cerulean}{0.94 0.11 0 0} %% Cerulean  ~ PANTONE 3005
+\newcmykcolor{Cyan}{1 0 0 0} %% Cyan  ~ PANTONE PROCESS-CYAN
+\newcmykcolor{ProcessBlue}{0.20 0 0 0} %% ProcessBlue  ~ PANTONE PROCESS-BLUE
+\newcmykcolor{GDBlue}{0.15 0 0 0} %% GDBlue  ~ PANTONE GDBlue
+\newcmykcolor{SkyBlue}{0.62 0 0.12 0} %% SkyBlue  ~ PANTONE 2985
+\newcmykcolor{Turquoise}{0.85 0 0.20 0} %% Turquoise  ~ PANTONE (312+313)/2
+\newcmykcolor{TealBlue}{0.86 0 0.34 0.02} %% TealBlue  ~ PANTONE 3145
+\newcmykcolor{Aquamarine}{0.82 0 0.30 0} %% Aquamarine  ~ PANTONE 3135
+\newcmykcolor{BlueGreen}{0.85 0 0.33 0} %% BlueGreen  ~ PANTONE 320
+\newcmykcolor{Emerald}{1 0 0.50 0} %% Emerald  No PANTONE match
+\newcmykcolor{JungleGreen}{0.99 0 0.52 0} %% JungleGreen  ~ PANTONE 328
+\newcmykcolor{SeaGreen}{0.69 0 0.50 0} %% SeaGreen  ~ PANTONE 3268
+\newcmykcolor{Green}{1 0 1 0} %% Green  VERY-Approx PANTONE GREEN
+\newcmykcolor{ForestGreen}{0.91 0 0.88 0.12} %% ForestGreen  ~ PANTONE 349
+\newcmykcolor{PineGreen}{0.92 0 0.59 0.25} %% PineGreen  ~ PANTONE 323
+\newcmykcolor{LimeGreen}{0.50 0 1 0} %% LimeGreen  No PANTONE match
+\newcmykcolor{YellowGreen}{0.44 0 0.74 0} %% YellowGreen  ~ PANTONE 375
+\newcmykcolor{SpringGreen}{0.26 0 0.76 0} %% SpringGreen  ~ PANTONE 381
+\newcmykcolor{OliveGreen}{0.64 0 0.95 0.40} %% OliveGreen  ~ PANTONE 582
+\newcmykcolor{RawSienna}{0 0.72 1 0.45} %% RawSienna  ~ PANTONE 154
+\newcmykcolor{Sepia}{0 0.83 1 0.70} %% Sepia  ~ PANTONE 161
+\newcmykcolor{Brown}{0 0.81 1 0.60} %% Brown  ~ PANTONE 1615
+\newcmykcolor{Tan}{0.14 0.42 0.56 0} %% Tan  No PANTONE match
+\newcmykcolor{Gray}{0 0 0 0.50} %% Gray  ~ PANTONE COOL-GRAY-8
+\newcmykcolor{Black}{0 0 0 1} %% Black  ~ PANTONE PROCESS-BLACK
+\newcmykcolor{White}{0 0 0 0} %% White  No PANTONE match
+
+%\newenvironment{algorithm}{\begin{algorithmfloat}\begin{tabular}{|p{\textwidth}|}\hline\\}{\hline\end{tabular}\end{algorithmfloat}}

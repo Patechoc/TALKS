@@ -1,0 +1,86 @@
+\pagenumbering{arabic}
+\documentclass[slides]{beamer}
+%\documentclass[slides,hyperref={pdfpagelabels=false}]{beamer}
+%\documentclass[handout,gray]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsbsy}
+\usepackage{multicol}
+\usepackage{booktabs} % Make some nice tables
+\usepackage{ae,aecompl}
+\usepackage{multirow} %% for tables
+\usepackage{soul} % strikethrough text
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\hypersetup{%
+pdftitle = {Pair-Atomic Resolution-of-the-Identity},
+pdfsubject = {Approximation to the 4-center 2-electrons integrals in quantum chemistry},
+pdfkeywords = {DF, RI, PARI, Cholesky, decomposition, integrals, quantum chemistry, Patrick, Merlot},
+pdfauthor = {\textcopyright\ Patrick Merlot, University of Oslo/CTCC},
+pdfcreator = {\LaTeX\ with \flqq Beamer\frqq class},
+colorlinks = {false}
+} 
+
+
+%%%%%%%%%%%% COULEURS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+{
+  \definecolor{beamerstructure}{RGB}{43,79,112}
+  \definecolor{sidebackground}{RGB}{230,242,250}
+  \definecolor{CTCC}{RGB}{133,188,228}
+  \color{beamerstructure}
+  \usetheme{default}
+  \usepackage{times}
+  \beamertemplateballitem
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{sidebar left}{\thispdfpagelabel{\insertframenumber}}
+%\setbeamertemplate{footline}{\quad\insertframenumber}
+%\usecolortheme{CTCC}
+}
+\usebackgroundtemplate{\includegraphics[width=1.02\paperwidth]{ctcc_general.jpg}}
+
+\title{\\\vspace{1cm}
+%Pair-Atomic Resolution-of-the-Identity\\
+The PARI Approximation\\ Much Ado About Nothing?
+}
+%\subtitle{\textcolor{magenta}{My subtitle (if applicable)}}
+\author{Patrick Merlot}
+\institute[CTCC]{\\[-6mm]patrick.merlot@kjemi.uio.no\\[6mm]University of Oslo\\[6mm]
+\includegraphics[height=1.5cm]{uio.pdf}\hspace{1cm}
+\includegraphics[height=1.5cm]{sff.pdf}\hspace{1cm}
+\includegraphics[height=1.5cm]{uit.pdf}
+}
+\date{  NKS Meeting 2012\\Hamn i Senja, June 12-13, 2012 }
+
+\newcommand{\gb}[1]{green!#1!black}
+\newcommand{\rb}[1]{red!#1!black}
+\newcommand{\bb}[1]{blue!#1!black}
+\newcommand{\coleq}{red!60!black}
+\newcommand{\du}{\textrm{d}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\red}{\color{red}}
+\newcommand{\beq}{\begin{equation*}\color{blue}}
+\newcommand{\eeq}{\end{equation*}\color{black}}
+
+\newenvironment{eec}{\begin{displaymath}\begin{color}{blue}}{\end{color}\end{displaymath}}
+
+\begin{document}
+\setlength{\unitlength}{\textwidth}
+
+{
+\usebackgroundtemplate{\includegraphics[width=1.02\paperwidth]{ctcc_forside.jpg}}
+\maketitle
+}
+
+%% \begin{frame}{Outline}
+%% \begin{itemize}
+%%  \item \ldots
+%% \end{itemize}
+%% \end{frame}
+
+\include{PARI}
+
+\end{document}
